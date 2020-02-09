@@ -1,7 +1,8 @@
 fcb_apache::vhosts_defaults:
-  vhost_nonssl:
-    port: '8080'
-    docroot: '/var/www/vhost'
-  vhost_ssl:
-    port: '443'
-    ssl: true
+  default_vhost_settings:
+    nonssl:
+      port: '8080'
+      docroot: '/var/www/vhost'
+    ssl:
+      port: '443'
+      ssl: true
