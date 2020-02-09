@@ -1,4 +1,6 @@
-class fcb_apache {
+class fcb_apache(
+  $vhosts,
+){
 
   case $facts['os']['name'] {
     'RedHat', 'CentOS':  { include fcb_apache::linux }

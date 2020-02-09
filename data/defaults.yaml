@@ -1,0 +1,4 @@
+fcb_apache::vhosts:
+  lark.fcb.com:
+    port: '8080'
+    docroot: '/var/www/vhost'
