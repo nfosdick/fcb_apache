@@ -1,3 +1,4 @@
 fcb_apache::vhosts_defaults:
-  port: '8080'
-  docroot: '/var/www/vhost'
+  vhost:
+    port: '8080'
+    docroot: '/var/www/vhost'
