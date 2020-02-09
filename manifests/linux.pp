@@ -9,7 +9,7 @@ class fcb_apache::linux(
 
   $vhosts.each |$vhost, $config| {
     notify{"Blah ${vhost}":}
-    $merged_config = $vhosts_defaults['vhost_nonssl'] + $config
+    $merged_config = $vhosts_defaults['default_vhost_settings'] + $config
     #$merged_nonssl_config = $vhosts_defaults['vhost_nonssl'] + $config
     #$merged_ssl_config    = $vhosts_defaults['vhost_ssl'] + $config
 
