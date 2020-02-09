@@ -8,17 +8,18 @@ class fcb_apache::linux(
   }
 
   $vhosts.each |$vhost, $config| {
-    $merged_nonssl_config = $vhosts_defaults['vhost_nonssl'] + $config
-    $merged_ssl_config    = $vhosts_defaults['vhost_ssl'] + $config
-
-    apache::vhost { "${vhost}_nonssl":
-      * => $merged_nonssl_config,
-    }
-
-    if has_key($config, 'ssl') {
-      apache::vhost { "${vhost}_ssl":
-        * => $merged_ssl_config,
-      }  
-    }
+    notify{"Blah ${vhost}":}
+#    $merged_nonssl_config = $vhosts_defaults['vhost_nonssl'] + $config
+#    $merged_ssl_config    = $vhosts_defaults['vhost_ssl'] + $config
+#
+#    apache::vhost { "${vhost}_nonssl":
+#      * => $merged_nonssl_config,
+#    }
+#
+#    if has_key($config, 'ssl') {
+#      apache::vhost { "${vhost}_ssl":
+#        * => $merged_ssl_config,
+#      }  
+#    }
   }
 }
