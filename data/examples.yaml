@@ -1,3 +1,4 @@
 fcb_apache::vhosts:
-  lark.fcb.com:
+  lark.fcb.com_nonssl:
+    servername: 'lark.fcb.com'
     docroot: '/var/www/lark'
