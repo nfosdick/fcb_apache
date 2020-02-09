@@ -1,6 +1,6 @@
 class fcb_apache::linux(
-  $vhosts_defaults, 
-  $vhosts = $fcb_apache::vhosts,
+  $vhosts_defaults = $fcb_apache::vhosts_defaults, 
+  $vhosts          = $fcb_apache::vhosts,
 ){
 
   class { 'apache':
