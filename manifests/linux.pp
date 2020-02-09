@@ -16,7 +16,7 @@ class fcb_apache::linux(
       *          => $merged_nonssl_config,
     }
 
-    if( defined($merged_ssl_config['ssl']) {
+    if has_key($config['ssl']) {
 #      apache::vhost { "${vhost}_ssl":
 #        servername => $vhost,
 #        *          => $merged_ssl_config,
