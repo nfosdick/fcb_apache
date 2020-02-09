@@ -16,10 +16,10 @@ class fcb_apache::linux(
     }
 
     if has_key($config, 'ssl') {
-      apache::vhost { "${vhost}_ssl":
-        servername => $vhost,
-        *          => $merged_ssl_config,
-      }  
+#      apache::vhost { "${vhost}":
+#        servername => $vhost,
+#        *          => $merged_ssl_config,
+#      }  
     }
   }
 }
