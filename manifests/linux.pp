@@ -9,8 +9,9 @@ class fcb_apache::linux(
 
   $vhosts.each |$vhost, $config| {
     $merged_config = $vhosts_defaults['vhost'] + $config
-    apache::vhost { $vhost:
-      * => $merged_config,
-    }
+    notify{"Nick $merged_config":}
+  #  apache::vhost { $vhost:
+  #    * => $merged_config,
+  #  }
   }
 }
