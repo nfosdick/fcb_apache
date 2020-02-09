@@ -1,5 +1,6 @@
 class fcb_apache::linux {
 
-  class { 'apache': }
-
+  class { 'apache':
+    default_vhost => false,
+  }
 }
