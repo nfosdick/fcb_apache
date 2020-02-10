@@ -26,7 +26,7 @@ class fcb_apache::linux(
     }
   }
   
-  $modules.each |$module| {
+  $modules.each |$index, $module| {
     apache::mod { $module: }
   }
 }
