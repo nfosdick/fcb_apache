@@ -1,6 +1,7 @@
 class fcb_apache::linux(
   $vhosts_defaults = $fcb_apache::vhosts_defaults, 
   $vhosts          = $fcb_apache::vhosts,
+  $apache_modules  = $fcb_apache::apache_modules,
 ){
 
   class { 'apache':
@@ -23,5 +24,9 @@ class fcb_apache::linux(
         * => $merged_nonssl_config,
       }
     }
+  }
+  
+  $apache_modules.each |$module| {
+    apache::mod { $module: }
   }
 }

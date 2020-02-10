@@ -6,3 +6,5 @@ fcb_apache::vhosts:
     servername: 'lark.fcb.com'
     docroot: '/var/www/lark'
     ssl: true
+apache_modules:
+  - mod_authnz_external
