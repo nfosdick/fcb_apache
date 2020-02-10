@@ -7,4 +7,4 @@ fcb_apache::vhosts:
     docroot: '/var/www/lark'
     ssl: true
 fcb_apache::modules:
-  - mod_status
+  - status
