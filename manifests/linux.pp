@@ -1,7 +1,7 @@
 class fcb_apache::linux(
   $vhosts_defaults = $fcb_apache::vhosts_defaults, 
   $vhosts          = $fcb_apache::vhosts,
-  $_modules        = $fcb_apache::modules,
+  $modules        = $fcb_apache::modules,
 ){
 
   class { 'apache':
@@ -26,7 +26,7 @@ class fcb_apache::linux(
     }
   }
   
-  $modules.each |$index, $module| {
-    apache::mod { $module: }
-  }
+#  $modules.each |$index, $module| {
+#    apache::mod { $module: }
+#  }
 }
