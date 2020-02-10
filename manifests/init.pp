@@ -1,7 +1,7 @@
 class fcb_apache(
   $vhosts,
   $vhosts_defaults,
-  $apache_modules,
+  $modules,
 ){
 
   case $facts['os']['name'] {
