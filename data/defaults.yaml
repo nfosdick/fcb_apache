@@ -1,4 +1,4 @@
-fcb_apache::configs:
+fcb_apache::config:
   purge_configs: false,
 #  default_vhost: false
 fcb_apache::purge_configs: false
