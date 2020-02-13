@@ -34,6 +34,8 @@ class fcb_apache::linux(
   }
 
   $packages.each |$index, $package| {
-    package{ $package: }
+    package{ $package: 
+      notify => Package[ 'httpd' ],
+    }
   }
 }
