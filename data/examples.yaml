@@ -8,4 +8,3 @@ fcb_apache::vhosts:
     ssl: true
 fcb_apache::modules:
   - status
-  - security
