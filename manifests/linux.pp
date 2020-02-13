@@ -1,10 +1,12 @@
 class fcb_apache::linux(
   $vhosts_defaults = $fcb_apache::vhosts_defaults, 
   $vhosts          = $fcb_apache::vhosts,
-  $modules        = $fcb_apache::modules,
+  $modules         = $fcb_apache::modules,
+  $purge_configs   = $fcb_apache::purge_configs,
 ){
 
   class { 'apache':
+     purge_configs => $purge_configs,
 #    default_vhost => false,
   }
 
