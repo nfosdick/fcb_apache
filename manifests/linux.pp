@@ -6,10 +6,10 @@ class fcb_apache::linux(
   $purge_configs   = $fcb_apache::purge_configs,
   $packages        = $fcb_apache::packages,
 ){
-
+  notify{ "Nick ${config}":}
   class { 'apache':
-    * => $config,
-#     purge_configs => $purge_configs,
+#    * => $config,
+     purge_configs => $purge_configs,
 #    default_vhost => false,
   }
 
