@@ -1,3 +1,6 @@
+fcb_apache::configs:
+  purge_configs: false,
+#  default_vhost: false
 fcb_apache::purge_configs: false
 fcb_apache::packages:
   - mod_security

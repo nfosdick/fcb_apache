@@ -1,4 +1,5 @@
 class fcb_apache(
+  $config,
   $vhosts,
   $vhosts_defaults,
   $modules,
