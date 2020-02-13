@@ -5,11 +5,12 @@ class fcb_apache::linux(
   $modules         = $fcb_apache::modules,
   $packages        = $fcb_apache::packages,
 ){
-
+  # Core Apache Module
   class { 'apache':
     * => $config,
   }
 
+  # Create Vhosts
   $vhosts.each |$vhost, $config| {
 
     if has_key($config, 'ssl') {
