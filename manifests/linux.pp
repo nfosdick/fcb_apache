@@ -3,14 +3,11 @@ class fcb_apache::linux(
   $vhosts_defaults = $fcb_apache::vhosts_defaults, 
   $vhosts          = $fcb_apache::vhosts,
   $modules         = $fcb_apache::modules,
-  $purge_configs   = $fcb_apache::purge_configs,
   $packages        = $fcb_apache::packages,
 ){
 
   class { 'apache':
     * => $config,
-#     purge_configs => $purge_configs,
-#    default_vhost => false,
   }
 
   $vhosts.each |$vhost, $config| {

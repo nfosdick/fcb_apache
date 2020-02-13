@@ -3,7 +3,6 @@ class fcb_apache(
   $vhosts,
   $vhosts_defaults,
   $modules,
-  $purge_configs,
   $packages,
 ){
 
