@@ -3,6 +3,7 @@ class fcb_apache::linux(
   $vhosts          = $fcb_apache::vhosts,
   $modules         = $fcb_apache::modules,
   $purge_configs   = $fcb_apache::purge_configs,
+  $packages        = $fcb_apache::packages,
 ){
 
   class { 'apache':
@@ -30,5 +31,9 @@ class fcb_apache::linux(
   
   $modules.each |$index, $module| {
     apache::mod { $module: }
+  }
+
+  $packages.each |$index, $package| {
+    package{ $package: }
   }
 }

@@ -1,4 +1,7 @@
 fcb_apache::purge_configs: false
+fcb_apache::packages:
+  - mod_security
+  - mod_security_crs
 fcb_apache::vhosts_defaults:
   nonssl:
     port: '8080'

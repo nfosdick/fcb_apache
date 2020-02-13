@@ -3,6 +3,7 @@ class fcb_apache(
   $vhosts_defaults,
   $modules,
   $purge_configs,
+  $packages,
 ){
 
   case $facts['os']['name'] {
