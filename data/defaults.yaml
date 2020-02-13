@@ -1,5 +1,5 @@
 fcb_apache::config:
-  purge_configs: false,
+  purge_configs: false
 #  default_vhost: false
 fcb_apache::purge_configs: false
 fcb_apache::packages:
