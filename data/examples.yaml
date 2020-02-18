@@ -1,4 +1,4 @@
-fcb_apache::vhosts:
+fcb_apache_v2::vhosts:
 #  lark.fcb.com_nonssl:
 #    servername: 'lark.fcb.com'
 #    docroot: '/var/www/lark'
@@ -6,5 +6,5 @@ fcb_apache::vhosts:
     servername: 'lark.fcb.com'
     docroot: '/var/www/lark'
     ssl: true
-fcb_apache::modules:
+fcb_apache_v2::modules:
   - status

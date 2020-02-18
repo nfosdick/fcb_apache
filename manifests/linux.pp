@@ -1,9 +1,9 @@
-class fcb_apache::linux(
-  $config          = $fcb_apache::config,
-  $vhosts_defaults = $fcb_apache::vhosts_defaults, 
-  $vhosts          = $fcb_apache::vhosts,
-  $modules         = $fcb_apache::modules,
-  $packages        = $fcb_apache::packages,
+class fcb_apache_v2::linux(
+  $config          = $fcb_apache_v2::config,
+  $vhosts_defaults = $fcb_apache_v2::vhosts_defaults, 
+  $vhosts          = $fcb_apache_v2::vhosts,
+  $modules         = $fcb_apache_v2::modules,
+  $packages        = $fcb_apache_v2::packages,
 ){
   # Core Apache Module
   class { 'apache':

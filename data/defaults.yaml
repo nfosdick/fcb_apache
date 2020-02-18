@@ -1,11 +1,11 @@
-fcb_apache::config:
+fcb_apache_v2::config:
   purge_configs: false
 #  default_vhost: false
-fcb_apache::purge_configs: false
-fcb_apache::packages:
+fcb_apache_v2::purge_configs: false
+fcb_apache_v2::packages:
   - mod_security
   - mod_security_crs
-fcb_apache::vhosts_defaults:
+fcb_apache_v2::vhosts_defaults:
   nonssl:
     port: '8080'
     docroot: '/var/www/vhost'

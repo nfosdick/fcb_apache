@@ -1,4 +1,4 @@
-class fcb_apache(
+class fcb_apache_v2(
   $config,
   $vhosts,
   $vhosts_defaults,
@@ -7,7 +7,7 @@ class fcb_apache(
 ){
 
   case $facts['os']['name'] {
-    'RedHat', 'CentOS':  { include fcb_apache::linux }
-    'Windows':           { include fcb_apache::windows }
+    'RedHat', 'CentOS':  { include fcb_apache_v2::linux }
+    'Windows':           { include fcb_apache_v2::windows }
   }
 }
