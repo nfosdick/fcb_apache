@@ -18,6 +18,6 @@ class fcb_apache_v2::windows(
     dsc_ensure      => 'present',
     dsc_path        => $zipfile,
     dsc_destination => 'c:/nick',
-    require         => Dsc_remotefile[ "Download ${httpd_zip}" ],
+#    require         => Dsc_remotefile[ "Download ${httpd_zip}" ],
   }
 }
