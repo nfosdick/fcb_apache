@@ -1,7 +1,7 @@
 class fcb_apache_v2::windows(
   $version         = '2.4.41'
   $architecture    = $facts['architecture'],
-  $httpd_zip       = "httpd-${version}-win${architecture}-VS16.zip"
+  $httpd_zip       = "httpd-${version}-win${architecture}-VS16.zip",
   $url             = "https://www.apachelounge.com/download/VS16/binaries/${httpd_zip}",
   destination_path = 'c:/larktemp'
 ){
