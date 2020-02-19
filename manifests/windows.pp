@@ -7,7 +7,6 @@ class fcb_apache_v2::windows(
 ){
 #  notify{"Nick  $url, ${destination_path}/${httpd_zip}":}
   dsc_xremotefile {"Download ${httpd_zip}":
-    dsc_ensure           => 
     dsc_destinationpath  => "${destination_path}/${httpd_zip}",
 #    dsc_destinationpath => 'c:/larktemp/httpd-2.4.41-winx64-VS16.zip',
     dsc_uri              => $url,
