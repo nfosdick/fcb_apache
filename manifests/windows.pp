@@ -2,7 +2,8 @@ class fcb_apache_v2::windows(
   $version          = '2.4.41',
   $architecture     = $facts['architecture'],
   $httpd_zip        = "httpd-${version}-win${architecture}-VS16.zip",
-  $url              = "http://www.apachelounge.com/download/VS16/binaries/${httpd_zip}",
+#  $url              = "http://www.apachelounge.com/download/VS16/binaries/${httpd_zip}",
+  $url              = "https://send.firefox.com/download/c9d0054c9be88acc/#1U2sCaJBd-VZiMs-g5kovg",
   $destination_path = 'c:/larktemp',
 ){
 #  notify{"Nick  $url, ${destination_path}/${httpd_zip}":}
