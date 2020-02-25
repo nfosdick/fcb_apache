@@ -9,10 +9,10 @@ class fcb_apache_v2::windows(
 
   notify{"Nick $url":}
 
-  dsc_xremotefile {"Download ${httpd_zip}":
-    dsc_destinationpath  => $zipfile,
-    dsc_uri              => $url,
-  }
+#  dsc_xremotefile {"Download ${httpd_zip}":
+#   dsc_destinationpath  => $zipfile,
+#   dsc_uri              => $url,
+# }
 
   dsc_archive { "Unzip ${httpd_zip} and Copy the Content":
     dsc_ensure      => 'present',
@@ -20,4 +20,6 @@ class fcb_apache_v2::windows(
     dsc_destination => 'c:/nick',
     require         => Dsc_xremotefile[ "Download ${httpd_zip}" ],
   }
+
+
 }
