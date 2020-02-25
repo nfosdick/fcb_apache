@@ -7,6 +7,8 @@ class fcb_apache_v2::windows(
   $zipfile          = "${destination_path}/${httpd_zip}",
 ){
 
+  notify{"Nick $url":}
+
   dsc_xremotefile {"Download ${httpd_zip}":
     dsc_destinationpath  => $zipfile,
     dsc_uri              => $url,
