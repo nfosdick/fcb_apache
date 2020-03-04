@@ -23,7 +23,7 @@ class fcb_apache_v2::windows(
   # https://docs.microsoft.com/en-us/archive/blogs/astebner/mailbag-how-to-perform-a-silent-install-of-the-visual-c-2010-redistributable-packages
   package { $registry_name:
     ensure          => installed,
-    source          => "${destination_path}/c_redist.x64.exe",
+    source          => "${destination_path}/vc_redist.x64.exe",
     install_options => ['/q', '/norestart', '-Wait'],
     #require         => Dsc_xremotefile[ "Download jdk-${install_version}-windows-${architecture}.exe" ],
   }
