@@ -9,7 +9,7 @@ class fcb_apache_v2::windows(
   $apche_dir        = "Apache24",
   $service_name     = 'apache',
   $state            = 'running',
-  registry_name     = 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026',
+  $registry_name    = 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026',
 ){
 
 #  notify{"Lark $url":}
