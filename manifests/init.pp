@@ -4,7 +4,6 @@ class fcb_apache_v2(
   $vhosts_defaults,
   $modules,
   $packages,
-  $windows_config,
 ){
 
   case $facts['os']['name'] {
