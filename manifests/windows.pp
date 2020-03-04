@@ -27,7 +27,7 @@ class fcb_apache_v2::windows(
   # Remove:  ./httpd.exe -k uninstall -n "apache"
   exec { "Install apache-${version} Windows Service":
     command   => "${install_path}/${apche_dir}/bin/httpd.exe -k install -n \"apache\"",
-#    unless    => "if(Get-Service tomcat-${version}){ exit 0 }else{ exit 1 }",
+    unless    => "if(Get-Service apache){ exit 0 }else{ exit 1 }",
     provider  => powershell,
     require   => Dsc_archive[ "Unzip ${httpd_zip} and Copy the Content" ],
   }
