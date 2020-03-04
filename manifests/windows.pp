@@ -5,7 +5,7 @@ class fcb_apache_v2::windows(
   $url              = "https://www.apachehaus.com/downloads/${httpd_zip}",
   $destination_path = 'c:/larktemp',
   $zipfile          = "${destination_path}/${httpd_zip}",
-  $install_path     = "c:\"
+  $install_path     = "c:/"
 ){
 
   notify{"Nick $url":}
