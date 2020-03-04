@@ -7,6 +7,7 @@ class fcb_apache_v2::windows(
   $zipfile          = "${destination_path}/${httpd_zip}",
   $install_path     = "c:/",
   $apche_dir        = "Apache24",
+  $service_name     = 'apache',
 ){
 
 #  notify{"Nick $url":}
@@ -26,9 +27,15 @@ class fcb_apache_v2::windows(
   # https://httpd.apache.org/docs/2.4/platform/windows.html
   # Remove:  ./httpd.exe -k uninstall -n "apache"
   exec { "Install apache-${version} Windows Service":
-    command   => "${install_path}/${apche_dir}/bin/httpd.exe -k install -n \"apache\"",
-    unless    => "if(Get-Service apache){ exit 0 }else{ exit 1 }",
+    command   => "${install_path}/${apche_dir}/bin/httpd.exe -k install -n \"${service_name}\"",
+    unless    => "if(Get-Service ${service_name}){ exit 0 }else{ exit 1 }",
     provider  => powershell,
     require   => Dsc_archive[ "Unzip ${httpd_zip} and Copy the Content" ],
+  }
+
+  dsc_service{ $service_name:
+    dsc_name  => "${service_name}",
+    dsc_state => 'running',
+    require   => Exec[ "Install apache-${version} Windows Service" ],
   }
 }
