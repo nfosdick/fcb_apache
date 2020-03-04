@@ -5,7 +5,8 @@ class fcb_apache_v2::windows(
   $url              = "https://www.apachehaus.com/downloads/${httpd_zip}",
   $destination_path = 'c:/larktemp',
   $zipfile          = "${destination_path}/${httpd_zip}",
-  $install_path     = "c:/"
+  $install_path     = "c:/",
+  $apche_dir        = "Apache24",
 ){
 
   notify{"Nick $url":}
@@ -22,13 +23,10 @@ class fcb_apache_v2::windows(
 #    require         => Dsc_xremotefile[ "Download ${httpd_zip}" ],
   }
 
-#  exec { "Install tomcat-${version} Windows Service":
-#    command   => "$service_cmd install tomcat-${version}",
+  exec { "Install apache-${version} Windows Service":
+    command   => "${install_path}/${apche_dir}/bin/httpd.exe -k install -n 'apache'",
 #    unless    => "if(Get-Service tomcat-${version}){ exit 0 }else{ exit 1 }",
-#    provider  => powershell,
-#   #logoutput => true,
-#    require   => Dsc_archive[ "Unzip $zip_file" ],
-#  }
-
-
+    provider  => powershell,
+    require   => Dsc_archive[ "Unzip ${httpd_zip} and Copy the Content" ],
+  }
 }
