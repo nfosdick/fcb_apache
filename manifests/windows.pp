@@ -22,13 +22,13 @@ class fcb_apache_v2::windows(
 #    require         => Dsc_xremotefile[ "Download ${httpd_zip}" ],
   }
 
-  exec { "Install tomcat-${version} Windows Service":
-    command   => "$service_cmd install tomcat-${version}",
-    unless    => "if(Get-Service tomcat-${version}){ exit 0 }else{ exit 1 }",
-    provider  => powershell,
-   #logoutput => true,
-    require   => Dsc_archive[ "Unzip $zip_file" ],
-  }
+#  exec { "Install tomcat-${version} Windows Service":
+#    command   => "$service_cmd install tomcat-${version}",
+#    unless    => "if(Get-Service tomcat-${version}){ exit 0 }else{ exit 1 }",
+#    provider  => powershell,
+#   #logoutput => true,
+#    require   => Dsc_archive[ "Unzip $zip_file" ],
+#  }
 
 
 }
