@@ -8,7 +8,7 @@ class fcb_apache_v2::windows(
   $destination_path = 'c:/larktemp',
   $zipfile          = "${destination_path}/${httpd_zip}",
   $exe_file         = "${destination_path}/${vc_redist_exe}",
-  $install_path     = "c:/",
+  $install_path     = "c:",
   $apche_dir        = "Apache24",
   $service_name     = 'apache',
   $state            = 'running',
