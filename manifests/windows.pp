@@ -4,7 +4,7 @@ class fcb_apache_v2::windows(
   $httpd_zip        = "httpd-${version}-o111c-${architecture}-vc15-r2.zip",
   $httpd_url        = "https://larkfileshare.blob.core.windows.net/fcb/${httpd_zip}",
   $vc_redist_exe    = 'vc_redist.x64.exe',
-  $vc_redist_url    = "https://larkfileshare.blob.core.windows.net/fcb/${vc_redist}",
+  $vc_redist_url    = "https://larkfileshare.blob.core.windows.net/fcb/${vc_redist_exe}",
   $destination_path = 'c:/larktemp',
   $zipfile          = "${destination_path}/${httpd_zip}",
   $exe_file         = "${destination_path}/${vc_redist_exe}",
