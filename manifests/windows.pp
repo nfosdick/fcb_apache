@@ -2,10 +2,12 @@ class fcb_apache_v2::windows(
   $version          = '2.4.41',
   $architecture     = $facts['architecture'],
   $httpd_zip        = "httpd-${version}-o111c-${architecture}-vc15-r2.zip",
-  #$url              = "https://www.apachehaus.com/downloads/${httpd_zip}",
-  $url              = "https://larkfileshare.blob.core.windows.net/fcb/${httpd_zip}",
+  $httpd_url        = "https://larkfileshare.blob.core.windows.net/fcb/${httpd_zip}",
+  $vc_redist_exe    = 'vc_redist.x64.exe',
+  $vc_redist_url    = "https://larkfileshare.blob.core.windows.net/fcb/${vc_redist}",
   $destination_path = 'c:/larktemp',
   $zipfile          = "${destination_path}/${httpd_zip}",
+  $exe_file         = "${destination_path}/${vc_redist_exe}",
   $install_path     = "c:/",
   $apche_dir        = "Apache24",
   $service_name     = 'apache',
@@ -13,10 +15,15 @@ class fcb_apache_v2::windows(
   $registry_name    = 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026',
 ){
 
-#  notify{"Lark $url":}
+  #$httpd_url "https://www.apachehaus.com/downloads/${httpd_zip}",
   dsc_xremotefile {"Download ${httpd_zip}":
    dsc_destinationpath  => $zipfile,
-   dsc_uri              => $url,
+   dsc_uri              => $httpd_url,
+ }
+
+  dsc_xremotefile {"Download ${vc_redist_exe}":
+   dsc_destinationpath  => $vc_redist_exe,
+   dsc_uri              => $vc_redist_url,
  }
 
   # https://community.spiceworks.com/topic/2138691-installing-visual-c-silently-using-powershell
