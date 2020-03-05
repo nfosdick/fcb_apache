@@ -64,4 +64,11 @@ class fcb_apache_v2::windows(
     dsc_state => $state,
     require   => Exec[ "Install apache-${version} Windows Service" ],
   }
+
+  exec { 'Restart Apache':
+    command     => "Restart-Service -Name $service_name",
+    refreshonly => true,
+    subscribe   => File[ "${$install_path}/${$apche_dir}/conf/httpd.conf" ],
+    require     => Dsc_service[ $service_name ],
+  }
 }
