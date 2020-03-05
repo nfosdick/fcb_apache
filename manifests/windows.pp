@@ -53,6 +53,12 @@ class fcb_apache_v2::windows(
     require  => Dsc_archive[ "Unzip ${httpd_zip} and Copy the Content" ],
   }
 
+  file { "${$install_path}/conf/httpd.conf":
+    ensure  => file,
+    content => template("${module_name}/windows_httpd.conf.erb"),
+    notify  => Dsc_service[ $service_name ],
+  }
+
   dsc_service{ $service_name:
     dsc_name  => "${service_name}",
     dsc_state => $state,
