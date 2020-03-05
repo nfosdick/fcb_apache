@@ -22,7 +22,7 @@ class fcb_apache_v2::windows(
  }
 
   dsc_xremotefile {"Download ${vc_redist_exe}":
-   dsc_destinationpath  => $vc_redist_exe,
+   dsc_destinationpath  => $exe_file,
    dsc_uri              => $vc_redist_url,
  }
 
