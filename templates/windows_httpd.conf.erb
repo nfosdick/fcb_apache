@@ -91,9 +91,9 @@ SSLRandomSeed connect builtin
 
 <% @vhost.each do |server, config| %>
 <VirtualHost *:<%= config['port'] %>>
- DocumentRoot "c:\nick"
+ DocumentRoot "<%= config['documentroot'] %>"
  ServerName <%= server %>
- <Directory "c:\nick">
+ <Directory "<%= config['documentroot'] %>">
  Require all granted
  </Directory>
 </VirtualHost>
