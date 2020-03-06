@@ -9,6 +9,6 @@ fcb_apache_v2::vhosts:
 fcb_apache_v2::modules:
   - status
 
-#fcb_apache_v2::windows::vhost:
-#  'nick.fcb.com':
-#     port: '80'
+fcb_apache_v2::windows::vhost:
+  'nick.fcb.com':
+     port: '80'
