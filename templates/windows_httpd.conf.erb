@@ -90,5 +90,11 @@ SSLRandomSeed connect builtin
 </IfModule>
 
 <%- if @vhost -%>
-#HttpProtocolOptions 
+<VirtualHost *:80>
+ DocumentRoot "c:\nick"
+ ServerName nick.fcb.com
+ <Directory "c:\nick">
+ Require all granted
+ </Directory>
+</VirtualHost>
 <%- end -%>
