@@ -88,3 +88,7 @@ SSLRandomSeed connect builtin
     ProtocolsHonorOrder On
     Protocols h2 h2c http/1.1
 </IfModule>
+
+<%- if @vhost -%>
+#HttpProtocolOptions 
+<%- end -%>
