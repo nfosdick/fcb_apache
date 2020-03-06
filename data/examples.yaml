@@ -8,3 +8,7 @@ fcb_apache_v2::vhosts:
     ssl: true
 fcb_apache_v2::modules:
   - status
+
+fcb_apache_v2::windows::vhost:
+  'nick.fcb.com':
+     port: '80'
