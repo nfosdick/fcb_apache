@@ -90,6 +90,7 @@ SSLRandomSeed connect builtin
 </IfModule>
 
 <% @vhost.each do |server, config| %>
+# <%= config %>
 <VirtualHost *:<% config['port'] %>>
  DocumentRoot "c:\nick"
  ServerName <%= server %>
