@@ -15,5 +15,6 @@ class fcb_apache_v2::windows::config {
     target  => "${$install_path}/${$apche_dir}/conf/httpd.conf",
     content => template("${module_name}/windows_httpd.conf.erb"),
     order   => '01'
+    notify  => Exec[ 'Restart Apache' ],
   }
 }
