@@ -17,6 +17,7 @@ class fcb_apache_v2::windows(
 ){
 
   include fcb_apache_v2::windows::install
+  include fcb_apache_v2::windows::config
 
 #  #$httpd_url "https://www.apachehaus.com/downloads/${httpd_zip}",
 #  dsc_xremotefile {"Download ${httpd_zip}":
