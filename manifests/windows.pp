@@ -75,4 +75,4 @@ class fcb_apache_v2::windows(
 #    subscribe   => File[ "${$install_path}/${$apche_dir}/conf/httpd.conf" ],
 #    require     => Dsc_service[ $service_name ],
 #  }
-#}
+}
