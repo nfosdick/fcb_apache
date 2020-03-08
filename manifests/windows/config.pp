@@ -9,7 +9,7 @@ class fcb_apache_v2::windows::config {
   file { "${$install_path}/${$apche_dir}/conf/httpd.conf":
     ensure  => file,
     content => template("${module_name}/windows_httpd.conf.erb"),
-#    notify  => Dsc_service[ $service_name ],
+    notify  => Dsc_service[ $service_name ],
   }
 
 }
