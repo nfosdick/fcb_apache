@@ -11,10 +11,17 @@ class fcb_apache_v2::windows::config {
     ensure => present,
   }
 
-  concat::fragment { 'tmpfile':
+  concat::fragment { 'httpd.conf':
     target  => "${$install_path}/${$apche_dir}/conf/httpd.conf",
     content => template("${module_name}/windows_httpd.conf.erb"),
     order   => '01',
+    notify  => Exec[ 'Restart Apache' ],
+  }
+
+  concat::fragment { 'vhost':
+    target  => "${$install_path}/${$apche_dir}/conf/httpd.conf",
+    content => template("${module_name}/windows_vhost.erb"),
+    order   => '10',
     notify  => Exec[ 'Restart Apache' ],
   }
 }

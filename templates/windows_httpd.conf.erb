@@ -88,13 +88,3 @@ SSLRandomSeed connect builtin
     ProtocolsHonorOrder On
     Protocols h2 h2c http/1.1
 </IfModule>
-
-<% @vhost.each do |server, config| %>
-<VirtualHost *:<%= config['port'] %>>
- DocumentRoot "<%= config['documentroot'] %>"
- ServerName <%= server %>
- <Directory "<%= config['documentroot'] %>">
- Require all granted
- </Directory>
-</VirtualHost>
-<% end %>
