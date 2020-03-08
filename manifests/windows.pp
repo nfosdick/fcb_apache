@@ -15,6 +15,7 @@ class fcb_apache_v2::windows(
   $registry_name    = 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026',
   $vhost            = {},
 ){
+  config_file       = "${$install_path}/${$apche_dir}/conf/httpd.conf"
 
   include fcb_apache_v2::windows::install
   include fcb_apache_v2::windows::config
