@@ -1,0 +1,9 @@
+<% @vhost.each do |server, config| %>
+<VirtualHost *:<%= config['port'] %>>
+ DocumentRoot "<%= config['documentroot'] %>"
+ ServerName <%= server %>
+ <Directory "<%= config['documentroot'] %>">
+ Require all granted
+ </Directory>
+</VirtualHost>
+<% end %>
