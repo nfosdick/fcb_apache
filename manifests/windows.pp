@@ -2,12 +2,8 @@ class fcb_apache_v2::windows(
   $version          = '2.4.41',
   $architecture     = $facts['architecture'],
   $httpd_zip        = "httpd-${version}-o111c-${architecture}-vc15-r2.zip",
-  $httpd_url        = "https://larkfileshare.blob.core.windows.net/fcb/${httpd_zip}",
   $vc_redist_exe    = 'vc_redist.x64.exe',
-  $vc_redist_url    = "https://larkfileshare.blob.core.windows.net/fcb/${vc_redist_exe}",
   $destination_path = 'c:/larktemp',
-  $zipfile          = "${destination_path}/${httpd_zip}",
-  $exe_file         = "${destination_path}/${vc_redist_exe}",
   $install_path     = "c:",
   $apche_dir        = "Apache24",
   $service_name     = 'apache',
@@ -15,8 +11,14 @@ class fcb_apache_v2::windows(
   $registry_name    = 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026',
   $vhost            = {},
 ){
-  config_file       = "${$install_path}/${$apche_dir}/conf/httpd.conf"
+  # Computed Variables
+  $httpd_url     = "https://larkfileshare.blob.core.windows.net/fcb/${httpd_zip}"
+  $vc_redist_url = "https://larkfileshare.blob.core.windows.net/fcb/${vc_redist_exe}"
+  $zipfile       = "${destination_path}/${httpd_zip}"
+  $exe_file      = "${destination_path}/${vc_redist_exe}"
+  $config_file   = "${$install_path}/${$apche_dir}/conf/httpd.conf"
 
+  # Class Includes
   include fcb_apache_v2::windows::install
   include fcb_apache_v2::windows::config
   include fcb_apache_v2::windows::service
