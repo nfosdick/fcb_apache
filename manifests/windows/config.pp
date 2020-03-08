@@ -1,9 +1,9 @@
 class fcb_apache_v2::windows::config {
   require fcb_apache_v2::windows::install
 
-  $install_path     = "c:"
-  $apche_dir        = "Apache24"
-  $service_name     = 'apache"
+  $install_path     = $fcb_apache_v2::windows::install_path
+  $apche_dir        = $fcb_apache_v2::windows::apche_dir
+  $service_name     = $fcb_apache_v2::windows::service_name
 
   file { "${$install_path}/${$apche_dir}/conf/httpd.conf":
     ensure  => file,
