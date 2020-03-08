@@ -1,9 +1,10 @@
 class fcb_apache_v2::windows::config {
   require fcb_apache_v2::windows::install
 
-  $install_path     = $fcb_apache_v2::windows::install_path
-  $apche_dir        = $fcb_apache_v2::windows::apche_dir
-  $service_name     = $fcb_apache_v2::windows::service_name
+  $install_path = $fcb_apache_v2::windows::install_path
+  $apche_dir    = $fcb_apache_v2::windows::apche_dir
+  $service_name = $fcb_apache_v2::windows::service_name
+  $vhost        = $fcb_apache_v2::windows::vhost
 
   file { "${$install_path}/${$apche_dir}/conf/httpd.conf":
     ensure  => file,
