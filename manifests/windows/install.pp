@@ -1,4 +1,4 @@
-class fcb_apache_v2::windows {
+class fcb_apache_v2::windows::install {
   $version          = '2.4.41'
   $architecture     = $facts['architecture']
   $httpd_zip        = "httpd-${version}-o111c-${architecture}-vc15-r2.zip"
