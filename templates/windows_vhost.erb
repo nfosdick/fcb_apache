@@ -2,7 +2,11 @@
 <% port_config.each do |port, config| %>
 <VirtualHost *:<%= port %>>
  ServerName <%= server %>
+ <% config['Directory'].each do |dir, dir_config| %>
+ <Directory "<%= dir %>">
+   <%= dir[dir_config] %>
  </Directory>
+ <% end %>
 </VirtualHost>
 <% end %>
 <% end %>
