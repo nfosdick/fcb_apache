@@ -3,7 +3,7 @@
 <VirtualHost *:<%= port %>>
  DocumentRoot "<%= config['DocumentRoot'] %>"
  ServerName <%= server %>
- <% config['Directory'].each do |dir, dir_config| %>
+ <% config['Directory'].each do |dir, dir_config| -%>
  <Directory "<%= dir %>">
  <% dir_config.each do |key, value| -%>
    <%= key %> <%= value %>
