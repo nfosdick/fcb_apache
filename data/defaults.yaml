@@ -20,5 +20,6 @@ fcb_apache_v2::windows::vhost_defaults:
   'defaults':
     '80':
       Directory:
-        AllowOverride: 'None'
-        Options: 'Indexes'
+        'default':
+          AllowOverride: 'None'
+          Options: 'Indexes'
