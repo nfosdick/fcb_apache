@@ -7,9 +7,9 @@
  <Directory "<%= dir %>">
  <% dir_config.each do |key, value| -%>
  <%= key %> <%= value %>
- <%- end -%>
+ <% end %>
  </Directory>
- <%- end -%>
+ <% end %>
 </VirtualHost>
 <% end %>
 <% end %>
