@@ -32,12 +32,8 @@ class fcb_apache_v2::windows::config {
   #  order   => '10',
   #}
 
-  $vhosts.each |vhost, config| {
-    $vhost_merged = $vhost_defaults['defaults'] + $config
-    notify{"Nick $vhost_merged":}
-  #fcb_apache_v2::windows:: { "${instance}-${connector}":
-  #  catalina_base => $catalina_base,
-  #      *             => $merged_connectors,
-  #    }
+  $vhosts.each |$vhost, $config| {
+    $vhosts_merged = $vhost_defaults['defaults'] + $config
+    notify{"Nick $vhosts_merged":}
   }
 }
