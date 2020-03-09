@@ -19,7 +19,7 @@ class fcb_apache_v2::windows(
   $vc_redist_url = "${base_httpd_url}/${vc_redist_exe}"
   $zipfile       = "${destination_path}/${httpd_zip}"
   $exe_file      = "${destination_path}/${vc_redist_exe}"
-  $config_file   = "${$install_path}/${$apche_dir}/conf/httpd.conf"
+  $config_file   = "${$install_path}/${$apache_dir}/conf/httpd.conf"
 
   # Class Includes
   include fcb_apache_v2::windows::install
