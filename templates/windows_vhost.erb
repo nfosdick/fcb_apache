@@ -5,8 +5,12 @@
  ServerName <%= server %>
  <% config['Directory'].each do |dir, dir_config| %>
  <Directory "<%= dir %>">
+   <% base_entrys.each do |key, value| %>
+   <%= key %> <%= value %>
+   <% end %>
  </Directory>
  <% end %>
 </VirtualHost>
 <% end %>
 <% end %>
+
