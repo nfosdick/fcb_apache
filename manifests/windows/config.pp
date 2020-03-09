@@ -22,6 +22,8 @@ class fcb_apache_v2::windows::config {
     order   => '01',
   }
 
+  # Template Doc:
+  # https://stackoverflow.com/questions/7996695/what-is-the-difference-between-and-in-erb-in-rails
   concat::fragment { 'vhost':
     target  => "${$install_path}/${$apche_dir}/conf/httpd.conf",
     content => template("${module_name}/windows_vhost.erb"),
