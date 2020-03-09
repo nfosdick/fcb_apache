@@ -1,7 +1,7 @@
 <% @vhost.each do |server, port_config| %>
 <% port_config.each do |port, config| %>
 <VirtualHost *:<%= port %>>
- DocumentRoot "<%= port_config['documentroot'] %>"
+ DocumentRoot "<%= config['documentroot'] %>"
  ServerName <%= server %>
  <% config['Directory'].each do |dir, dir_config| %>
  <Directory "<%= dir %>">
