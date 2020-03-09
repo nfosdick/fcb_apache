@@ -9,10 +9,6 @@ class fcb_apache_v2::windows::config {
   $vhost          = $fcb_apache_v2::windows::vhost
   $vhost_defaults = $fcb_apache_v2::windows::vhost_defaults
 
-  # Computed Variables
-  $vhost_merged = $vhost_defaults['defaults'] + $vhost
-  notify{ "Nick $vhost_merged":}
-
   Concat::Fragment {
     notify => Exec[ 'Restart Apache' ],
   }
@@ -30,9 +26,18 @@ class fcb_apache_v2::windows::config {
 
   # Template Doc:
   # https://stackoverflow.com/questions/7996695/what-is-the-difference-between-and-in-erb-in-rails
-  concat::fragment { 'vhost':
-    target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
-    content => template("${module_name}/windows_vhost.erb"),
-    order   => '10',
+  #concat::fragment { 'vhost':
+  #  target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
+  #  content => template("${module_name}/windows_vhost.erb"),
+  #  order   => '10',
+  #}
+
+  $vhost.each |vhost, config| {
+    $vhost_merged = $vhost_defaults['defaults'] + $config
+    notify{"Nick $vhost_merged":}
+  #fcb_apache_v2::windows:: { "${instance}-${connector}":
+  #  catalina_base => $catalina_base,
+  #      *             => $merged_connectors,
+  #    }
   }
 }
