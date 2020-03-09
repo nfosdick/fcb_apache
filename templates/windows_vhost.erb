@@ -1,10 +1,7 @@
 <% @vhost.each do |server, port_config| %>
 <% @port_config.each do |port, entry| %>
 <VirtualHost *:<%= port %>>
- DocumentRoot "<%= port_config[entry] %>"
  ServerName <%= server %>
- <Directory "<%= port_config[entry] %>">
- Require all granted
  </Directory>
 </VirtualHost>
 <% end -%>
