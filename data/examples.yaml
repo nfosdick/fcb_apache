@@ -16,8 +16,10 @@ fcb_apache_v2::windows::vhost:
      '80':
        DocumentRoot: 'c:/nick'
        Directory:
-         'c:/temp':
+         'c:/nick':
            Require: 'all granted'
+         'c:/temp':
+            Require: 'all granted'
 
 #fcb_apache_v2::windows::vhost:
 #  'nick.fcb.com':
