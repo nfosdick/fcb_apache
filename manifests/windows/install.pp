@@ -11,6 +11,7 @@ class fcb_apache_v2::windows::install {
   $install_path     = $fcb_apache_v2::windows::install_path
   $apche_dir        = $fcb_apache_v2::windows::apche_dir
   $registry_name    = $fcb_apache_v2::windows::registry_name
+  $service_name     = $fcb_apache_v2::windows::service_name
 
   #$httpd_url "https://www.apachehaus.com/downloads/${httpd_zip}",
   dsc_xremotefile {"Download ${httpd_zip}":
