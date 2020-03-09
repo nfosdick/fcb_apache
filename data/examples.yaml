@@ -1,3 +1,4 @@
+# Linux Examples
 fcb_apache_v2::vhosts:
 #  lark.fcb.com_nonssl:
 #    servername: 'lark.fcb.com'
@@ -9,10 +10,19 @@ fcb_apache_v2::vhosts:
 fcb_apache_v2::modules:
   - status
 
+# Windows Examples
 fcb_apache_v2::windows::vhost:
   'nick.fcb.com':
-     port: '80'
-     documentroot: 'c:/nick'
+     '80':
+       DocumentRoot: 'c:/nick'
+       Directory:
+         'c:\temp':
+           Require: 'all granted'
+
+#fcb_apache_v2::windows::vhost:
+#  'nick.fcb.com':
+#     port: '80'
+#     documentroot: 'c:/nick'
 #  'erin.fcb.com':
 #     port: '80'
 #     documentroot: 'c:/nick'
