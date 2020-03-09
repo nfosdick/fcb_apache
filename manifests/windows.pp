@@ -6,7 +6,7 @@ class fcb_apache_v2::windows(
   $vc_redist_exe      = 'vc_redist.x64.exe',
   $destination_path   = 'c:/larktemp',
   $install_path       = "c:",
-  $apche_dir          = "Apache24",
+  $apache_dir         = "Apache24",
   $service_name       = 'apache',
   $state              = 'running',
   $registry_name      = 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026',

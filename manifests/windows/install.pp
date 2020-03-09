@@ -9,7 +9,7 @@ class fcb_apache_v2::windows::install {
   $zipfile          = $fcb_apache_v2::windows::zipfile
   $exe_file         = $fcb_apache_v2::windows::exe_file
   $install_path     = $fcb_apache_v2::windows::install_path
-  $apche_dir        = $fcb_apache_v2::windows::apche_dir
+  $apache_dir       = $fcb_apache_v2::windows::apache_dir
   $registry_name    = $fcb_apache_v2::windows::registry_name
   $service_name     = $fcb_apache_v2::windows::service_name
 
@@ -44,7 +44,7 @@ class fcb_apache_v2::windows::install {
   # https://httpd.apache.org/docs/2.4/platform/windows.html
   # Remove:  ./httpd.exe -k uninstall -n "apache"
   exec { "Install apache-${version} Windows Service":
-    command  => "${install_path}/${apche_dir}/bin/httpd.exe -k install -n \"${service_name}\"",
+    command  => "${install_path}/${apache_dir}/bin/httpd.exe -k install -n \"${service_name}\"",
     unless   => "if(Get-Service ${service_name}){ exit 0 }else{ exit 1 }",
     provider => powershell,
     require  => Dsc_archive[ "Unzip ${httpd_zip} and Copy the Content" ],
