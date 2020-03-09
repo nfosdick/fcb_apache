@@ -1,5 +1,6 @@
 <% @vhost.each do |server, port_config| %>
-<VirtualHost *:<%= server %>>
+<% @port_config.each do |port, port_config| %>
+<VirtualHost *:<%= port %>>
  ServerName <%= server %>
  </Directory>
 </VirtualHost>
