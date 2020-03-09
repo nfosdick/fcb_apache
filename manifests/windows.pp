@@ -10,7 +10,7 @@ class fcb_apache_v2::windows(
   $service_name       = 'apache',
   $state              = 'running',
   $registry_name      = 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026',
-  $vhost              = {},
+  $vhosts             = {},
   $vhost_defaults,
 ){
 

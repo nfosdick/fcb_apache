@@ -11,7 +11,7 @@ fcb_apache_v2::modules:
   - status
 
 # Windows Examples
-fcb_apache_v2::windows::vhost:
+fcb_apache_v2::windows::vhosts:
   'nick.fcb.com':
      '80':
        DocumentRoot: 'c:/nick'

@@ -6,7 +6,7 @@ class fcb_apache_v2::windows::config {
   $apache_dir      = $fcb_apache_v2::windows::apache_dir
   $service_name   = $fcb_apache_v2::windows::service_name
   $config_file    = $fcb_apache_v2::windows::config_file
-  $vhost          = $fcb_apache_v2::windows::vhost
+  $vhosts         = $fcb_apache_v2::windows::vhosts
   $vhost_defaults = $fcb_apache_v2::windows::vhost_defaults
 
   Concat::Fragment {
@@ -32,7 +32,7 @@ class fcb_apache_v2::windows::config {
   #  order   => '10',
   #}
 
-  $vhost.each |vhost, config| {
+  $vhosts.each |vhost, config| {
     $vhost_merged = $vhost_defaults['defaults'] + $config
     notify{"Nick $vhost_merged":}
   #fcb_apache_v2::windows:: { "${instance}-${connector}":
