@@ -33,7 +33,7 @@ class fcb_apache_v2::windows::config {
   #}
 
   $vhosts.each |$vhost, $config| {
-    $vhosts_merged = $vhost_defaults['defaults'] + $config
+    $vhosts_merged = $vhost_defaults['defaults'] + $vhosts[$vhost]
     notify{"Nick $vhosts_merged":}
   }
 }
