@@ -11,6 +11,7 @@ class fcb_apache_v2::windows::config {
 
   # Computed Variables
   $vhost_merged = $vhost_defaults['defaults'] + $vhost
+  notify{ "Nick $vhost_merged":}
 
   Concat::Fragment {
     notify => Exec[ 'Restart Apache' ],
