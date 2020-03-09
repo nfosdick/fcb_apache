@@ -1,11 +1,16 @@
 class fcb_apache_v2::windows::config {
   require fcb_apache_v2::windows::install
 
-  $install_path = $fcb_apache_v2::windows::install_path
-  $apche_dir    = $fcb_apache_v2::windows::apche_dir
-  $service_name = $fcb_apache_v2::windows::service_name
-  $config_file  = $fcb_apache_v2::windows::config_file
-  $vhost        = $fcb_apache_v2::windows::vhost
+  # Get Core Variables
+  $install_path   = $fcb_apache_v2::windows::install_path
+  $apche_dir      = $fcb_apache_v2::windows::apche_dir
+  $service_name   = $fcb_apache_v2::windows::service_name
+  $config_file    = $fcb_apache_v2::windows::config_file
+  $vhost          = $fcb_apache_v2::windows::vhost
+  $vhost_defaults = $fcb_apache_v2::windows::vhost_defaults
+
+  # Computed Variables
+  $vhost_merged = $vhost_defaults['vhost'] + $hash
 
   Concat::Fragment {
     notify => Exec[ 'Restart Apache' ],

@@ -1,17 +1,19 @@
 class fcb_apache_v2::windows(
-  $version          = '2.4.41',
-  $architecture     = $facts['architecture'],
-  $base_httpd_url   = 'https://larkfileshare.blob.core.windows.net/fcb',
-  $httpd_zip        = "httpd-${version}-o111c-${architecture}-vc15-r2.zip",
-  $vc_redist_exe    = 'vc_redist.x64.exe',
-  $destination_path = 'c:/larktemp',
-  $install_path     = "c:",
-  $apche_dir        = "Apache24",
-  $service_name     = 'apache',
-  $state            = 'running',
-  $registry_name    = 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026',
-  $vhost            = {},
+  $version            = '2.4.41',
+  $architecture       = $facts['architecture'],
+  $base_httpd_url     = 'https://larkfileshare.blob.core.windows.net/fcb',
+  $httpd_zip          = "httpd-${version}-o111c-${architecture}-vc15-r2.zip",
+  $vc_redist_exe      = 'vc_redist.x64.exe',
+  $destination_path   = 'c:/larktemp',
+  $install_path       = "c:",
+  $apche_dir          = "Apache24",
+  $service_name       = 'apache',
+  $state              = 'running',
+  $registry_name      = 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026',
+  $vhost              = {},
+  $directory_defaults,
 ){
+
   # Computed Variables
   $httpd_url     = "${base_httpd_url}/${httpd_zip}"
   $vc_redist_url = "${base_httpd_url}/${vc_redist_exe}"

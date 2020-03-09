@@ -28,11 +28,3 @@ fcb_apache_v2::windows::vhost:
            Options: 'Indexes FollowSymLinks'
          'c:/temp':
             Require: 'all granted'
-
-#fcb_apache_v2::windows::vhost:
-#  'nick.fcb.com':
-#     port: '80'
-#     documentroot: 'c:/nick'
-#  'erin.fcb.com':
-#     port: '80'
-#     documentroot: 'c:/nick'
