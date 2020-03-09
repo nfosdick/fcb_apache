@@ -32,11 +32,10 @@ class fcb_apache_v2::windows::config {
   #  order   => '10',
   #}
 
-  notify{"Nick $vhost_defaults['defaults']":}
 
   $vhosts.each |$vhost, $config| {
     $vhosts_merged = $vhost_defaults['defaults'] + $vhosts[$vhost]
-#    notify{"Nick $vhosts_merged":} 
+    notify{"Nick $vhosts_merged":} 
     concat::fragment { 'vhost':
       target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
       content => template("${module_name}/windows_vhost.erb"),
