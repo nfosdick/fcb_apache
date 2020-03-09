@@ -18,8 +18,8 @@ fcb_apache_v2::windows::vhosts:
        Directory:
          'c:/nick':
            Require: 'all granted'
-         'c:/temp':
-            Require: 'all granted'
+#         'c:/temp':
+#            Require: 'all granted'
 #     '443':
 #       DocumentRoot: 'c:/nick'
 #       Directory:
