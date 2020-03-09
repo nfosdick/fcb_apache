@@ -25,6 +25,7 @@ fcb_apache_v2::windows::vhost:
        Directory:
          'c:/nick':
            Require: 'all granted'
+           Alias: '"/images/" "Z:/"'
          'c:/temp':
             Require: 'all granted'
 
