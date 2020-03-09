@@ -10,7 +10,7 @@ class fcb_apache_v2::windows::config {
   $vhost_defaults = $fcb_apache_v2::windows::vhost_defaults
 
   # Computed Variables
-  $vhost_merged = $vhost_defaults['vhost'] + $vhost
+  $vhost_merged = $vhost_defaults['defaults'] + $vhost
 
   Concat::Fragment {
     notify => Exec[ 'Restart Apache' ],
