@@ -27,8 +27,6 @@ class fcb_apache_v2::windows::config {
 
   # Template Doc:
   # https://stackoverflow.com/questions/7996695/what-is-the-difference-between-and-in-erb-in-rails
-  $vhosts_merged = $vhost_defaults + $vhosts
-  notify{"Nick $vhosts_merged":}
   concat::fragment { 'vhost':
     target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
     content => template("${module_name}/windows_vhost.erb"),
