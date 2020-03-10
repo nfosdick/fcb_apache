@@ -37,7 +37,7 @@ class fcb_apache_v2::windows::config {
   $vhosts.each |$server, $ports_config| {
     $vhosts_merged = $vhost_defaults + $ports_config
     $ports_config.each |$port, $dir_config| {
-      $directory_merged = $vhost_directory_defaults + $dir_config
+      $directory_merged = $vhost_directory_defaults
     }
     notify{"Nick $vhosts_merged":} 
     concat::fragment { 'vhost':
