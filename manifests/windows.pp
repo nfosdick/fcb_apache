@@ -13,7 +13,7 @@ class fcb_apache_v2::windows(
   $vhosts             = {},
   $vhost_defaults,
 ){
-  notify{"PAM $vhost_defaults":}
+
   # Computed Variables
   $httpd_url     = "${base_httpd_url}/${httpd_zip}"
   $vc_redist_url = "${base_httpd_url}/${vc_redist_exe}"
