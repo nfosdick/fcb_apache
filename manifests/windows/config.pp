@@ -39,7 +39,7 @@ class fcb_apache_v2::windows::config {
       $dirs_config.each |$dir, $config| {
         #$directory_merged = $vhost_directory_defaults + $config[$dir]
         $directory_merged = $config
-        notify{"Nick $directory_merged":} 
+        notify{"Nick=$dir $directory_merged":} 
       }
     }
     concat::fragment { 'vhost':
