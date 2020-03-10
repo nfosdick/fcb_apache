@@ -18,14 +18,14 @@ fcb_apache_v2::windows::vhosts:
        Directory:
          'c:/nick':
            Require: 'all granted'
-#           Options: 'Indexes FollowSymLinks'
-#         'c:/temp':
-#            Require: 'all granted'
-#     '443':
-#       DocumentRoot: 'c:/nick'
-#       Directory:
-#         'c:/nick':
-#           Require: 'all granted'
-#           Options: 'Indexes FollowSymLinks'
-#         'c:/temp':
-#           Require: 'all granted'
+           Options: 'Indexes FollowSymLinks'
+         'c:/temp':
+            Require: 'all granted'
+     '443':
+       DocumentRoot: 'c:/nick'
+       Directory:
+         'c:/nick':
+           Require: 'all granted'
+           Options: 'Indexes FollowSymLinks'
+         'c:/temp':
+           Require: 'all granted'
