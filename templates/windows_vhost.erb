@@ -5,7 +5,8 @@
  ServerName <%= server %>
  <% config['Directory'].each do |dir, dir_config| %>
  <Directory "<%= dir %>">
- <%- dir_config.each do |key, value| -%>
+ <% dirs = vhost_directory_defaults.merge(dir_config) -%>
+ <%- dirs.each do |key, value| -%>
    <%= key %> <%= value %>
  <%- end -%>
  </Directory>

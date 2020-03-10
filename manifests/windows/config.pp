@@ -27,25 +27,25 @@ class fcb_apache_v2::windows::config {
 
   # Template Doc:
   # https://stackoverflow.com/questions/7996695/what-is-the-difference-between-and-in-erb-in-rails
-#  concat::fragment { 'vhost':
-#    target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
-#    content => template("${module_name}/windows_vhost.erb"),
-#    order   => '10',
-#  }
-
-  $vhosts.each |$server, $ports_config| {
-    $vhosts_merged = $vhost_defaults + $ports_config
-    $ports_config.each |$port, $dirs_config['Directory']| {
-      $dirs_config.each |$dir, $config| {
-        #$directory_merged = $vhost_directory_defaults + $config[$dir]
-        $directory_merged = $config
-        notify{"Nick=$dir $directory_merged":} 
-      }
-    }
-    concat::fragment { 'vhost':
-      target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
-      content => template("${module_name}/windows_vhost_new.erb"),
-      order   => '10',
-    }
+  concat::fragment { 'vhost':
+    target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
+    content => template("${module_name}/windows_vhost.erb"),
+    order   => '10',
   }
+
+#  $vhosts.each |$server, $ports_config| {
+#    $vhosts_merged = $vhost_defaults + $ports_config
+#    $ports_config.each |$port, $dirs_config| {
+#      $dirs_config.each |$dir, $config| {
+#        #$directory_merged = $vhost_directory_defaults + $config[$dir]
+#        $directory_merged = $config
+#        notify{"Nick=$dir $directory_merged":} 
+#      }
+#    }
+#    concat::fragment { 'vhost':
+#      target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
+#      content => template("${module_name}/windows_vhost_new.erb"),
+#      order   => '10',
+#    }
+#  }
 }
