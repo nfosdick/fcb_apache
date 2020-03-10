@@ -33,6 +33,7 @@ class fcb_apache_v2::windows::config {
 #    order   => '10',
 #  }
 
+  notify{"Adam $vhost_directory_defaults":}
 
   $vhosts.each |$server, $ports_config| {
     $vhosts_merged = $vhost_defaults + $ports_config
