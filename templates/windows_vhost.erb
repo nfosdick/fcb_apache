@@ -1,4 +1,5 @@
-<% @vhosts_merged.each do |server, port_config| %>
+<%= scope['vhosts_merged'] %>
+<% @vhosts.each do |server, port_config| %>
 <% port_config.each do |port, config| %>
 <VirtualHost *:<%= port %>>
  DocumentRoot "<%= config['DocumentRoot'] %>"
