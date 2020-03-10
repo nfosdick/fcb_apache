@@ -37,7 +37,7 @@ class fcb_apache_v2::windows::config {
     $vhosts_merged = $vhost_defaults + $ports_config
     $ports_config.each |$port, $dirs_config| {
       $dirs_config.each |$dir, $config| {
-        $directory_merged = $vhost_directory_defaults + $dir_config['Directory'][$dir]
+        $directory_merged = $vhost_directory_defaults + $config
         notify{"Nick $directory_merged":} 
       }
     }
