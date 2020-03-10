@@ -33,13 +33,13 @@ class fcb_apache_v2::windows::config {
   }
 
 
-  #$vhosts.each |$vhost, $config| {
-  #  $vhosts_merged = $vhost_defaults['defaults']['Directory']['default'] + $vhosts[$vhost]['Directory']
-  #  notify{"Nick $vhosts_merged":} 
+  $vhosts.each |$vhost, $config| {
+    $vhosts_merged = $vhost_defaults['defaults']['default'] + $vhosts[$vhost]
+    notify{"Nick $vhosts_merged":} 
   #  concat::fragment { 'vhost':
   #    target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
   #    content => template("${module_name}/windows_vhost.erb"),
   #    order   => '10',
   #  }
-  #}
+  }
 }
