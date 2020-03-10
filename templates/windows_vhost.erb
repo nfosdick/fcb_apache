@@ -2,6 +2,7 @@
 <%= port_config %>
 <%= @vhost_defaults %>
 <%- ports = @vhost_defaults.merge(port_config) -%>
+<%= ports %>
 <% port_config.each do |port, config| %>
 <VirtualHost *:<%= port %>>
  DocumentRoot "<%= config['DocumentRoot'] %>"
