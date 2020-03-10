@@ -19,6 +19,7 @@ fcb_apache_v2::windows: '2.4.41'
 fcb_apache_v2::windows::vhost_defaults:
 #  'defaults':
   '80':
+     DocumentRoot: 'c:/larktemp'
      Directory:
        'defaults':
          AllowOverride: 'None'
