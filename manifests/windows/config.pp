@@ -39,10 +39,10 @@ class fcb_apache_v2::windows::config {
 
 #    }
     notify{"Nick $vhosts_merged":} 
-  #  concat::fragment { 'vhost':
-  #    target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
-  #    content => template("${module_name}/windows_vhost.erb"),
-  #    order   => '10',
-  #  }
+    concat::fragment { 'vhost':
+      target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
+      content => template("${module_name}/windows_vhost_new.erb"),
+      order   => '10',
+    }
   }
 }
