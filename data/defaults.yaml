@@ -20,6 +20,9 @@ fcb_apache_v2::windows::vhost_defaults:
   80:
     DocumentRoot: 'c:/larktemp'
     Directory:
-      defaults:
-        AllowOverride: 'None'
-        Options: 'Indexes'
+      AllowOverride: 'None'
+      Options: 'Indexes'
+#fcb_apache_v2::windows::vhost_directory_defaults:
+#   Directory:
+#     AllowOverride: 'None'
+#     Options: 'Indexes'
