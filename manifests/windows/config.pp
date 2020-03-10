@@ -2,12 +2,13 @@ class fcb_apache_v2::windows::config {
   require fcb_apache_v2::windows::install
 
   # Get Core Variables
-  $install_path   = $fcb_apache_v2::windows::install_path
-  $apache_dir      = $fcb_apache_v2::windows::apache_dir
-  $service_name   = $fcb_apache_v2::windows::service_name
-  $config_file    = $fcb_apache_v2::windows::config_file
-  $vhosts         = $fcb_apache_v2::windows::vhosts
-  $vhost_defaults = $fcb_apache_v2::windows::vhost_defaults
+  $install_path             = $fcb_apache_v2::windows::install_path
+  $apache_dir               = $fcb_apache_v2::windows::apache_dir
+  $service_name             = $fcb_apache_v2::windows::service_name
+  $config_file              = $fcb_apache_v2::windows::config_file
+  $vhosts                   = $fcb_apache_v2::windows::vhosts
+  $vhost_defaults           = $fcb_apache_v2::windows::vhost_defaults
+  $vhost_directory_defaults = $fcb_apache_v2::windows::vhost_directory_defaults
 
   Concat::Fragment {
     notify => Exec[ 'Restart Apache' ],
@@ -35,9 +36,9 @@ class fcb_apache_v2::windows::config {
 
   $vhosts.each |$server, $ports_config| {
     $vhosts_merged = $vhost_defaults + $ports_config
-#    $ports_config.each |$port, $config| {
-
-#    }
+    $ports_config.each |$port, $dir_config| {
+      $directory_merged = $vhost_directory_defaults + $dir_config
+    }
     notify{"Nick $vhosts_merged":} 
     concat::fragment { 'vhost':
       target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",

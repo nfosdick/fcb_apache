@@ -12,6 +12,7 @@ class fcb_apache_v2::windows(
   $registry_name      = 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026',
   $vhosts             = {},
   $vhost_defaults,
+  $vhost_directory_defaults,
 ){
 
   # Computed Variables
