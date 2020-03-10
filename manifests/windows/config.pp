@@ -36,6 +36,7 @@ class fcb_apache_v2::windows::config {
   $vhosts.each |$vhost, $config| {
 #    $vhosts_merged = $vhost_defaults['defaults']['default'] + $vhosts[$vhost]
     $vhosts_merged = $vhost_defaults['defaults'] + $config
+    $directory_merged=$config['Directory']
     notify{"Nick $vhosts_merged":} 
   #  concat::fragment { 'vhost':
   #    target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
