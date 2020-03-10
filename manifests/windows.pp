@@ -14,7 +14,7 @@ class fcb_apache_v2::windows(
   $vhost_defaults,
   $vhost_directory_defaults,
 ){
-
+  notify{"Adam $vhost_directory_defaults":}
   # Computed Variables
   $httpd_url     = "${base_httpd_url}/${httpd_zip}"
   $vc_redist_url = "${base_httpd_url}/${vc_redist_exe}"
