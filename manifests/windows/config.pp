@@ -9,9 +9,9 @@ class fcb_apache_v2::windows::config {
   $vhosts         = $fcb_apache_v2::windows::vhosts
   $vhost_defaults = $fcb_apache_v2::windows::vhost_defaults
 
-  #Concat::Fragment {
-  #  notify => Exec[ 'Restart Apache' ],
-  #}
+  Concat::Fragment {
+    notify => Exec[ 'Restart Apache' ],
+  }
 
   concat { "${$install_path}/${$apache_dir}/conf/httpd.conf":
     ensure => present,
