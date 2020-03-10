@@ -35,9 +35,11 @@ class fcb_apache_v2::windows::config {
 
   $vhosts.each |$server, $ports_config| {
     $vhosts_merged = $vhost_defaults + $ports_config
-    $ports_config.each |$port, $dir_config| {
-      $directory_merged = $vhost_directory_defaults + $dir_config['Directory']
-      notify{"Nick $directory_merged":} 
+    $ports_config.each |$port, $dirs_config| {
+      $dirs_config.each |$dir, $config| {
+        $directory_merged = $vhost_directory_defaults + $dir_config['Directory'][$dir]
+        notify{"Nick $directory_merged":} 
+      }
     }
     concat::fragment { 'vhost':
       target  => "${$install_path}/${$apache_dir}/conf/httpd.conf",
