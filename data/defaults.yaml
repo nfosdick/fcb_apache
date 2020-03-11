@@ -19,7 +19,15 @@ fcb_apache_v2::vhosts_defaults:
     SSLCACertificateFile: 'C:/apache_root'
 
 # Windows Defaults
-fcb_apache_v2::windows: '2.4.41'
+fcb_apache_v2::windows::version: '2.4.41'
+fcb_apache_v2::windows::base_httpd_url: 'https://larkfileshare.blob.core.windows.net/fcb'
+fcb_apache_v2::windows::vc_redist_exe: 'vc_redist.x64.exe'
+fcb_apache_v2::windows::destination_path: 'c:/larktemp'
+fcb_apache_v2::windows::install_path: 'c:'
+fcb_apache_v2::windows::apache_dir:: 'Apache24'
+fcb_apache_v2::windows::service_name: apache'
+fcb_apache_v2::windows::state: 'running'
+fcb_apache_v2::windows::registry_name: 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026'
 fcb_apache_v2::windows::vhost_defaults:
   '80':
     DocumentRoot: 'c:/larktemp'
