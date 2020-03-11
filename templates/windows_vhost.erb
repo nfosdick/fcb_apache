@@ -2,13 +2,14 @@
 <% port_config.each do |port, config| %>
 <%- config_merged = @vhost_defaults[port].merge(config) -%>
 <VirtualHost *:<%= port %>>
- DocumentRoot "<%= config_merged['DocumentRoot'] %>"
- ServerName <%= server %>
- <% config['Directory'].each do |dir, dir_config| %>
- <Directory "<%= dir %>">
+ <% config_merged.each do |key, value| %>
+ <% if @key != 'Directory' -%>
+ <%= key %> <%= value %>
+ <% else -%>
  <%- dirs = @vhost_directory_defaults.merge(dir_config) -%>
- <%- dirs.each do |key, value| -%>
-   <%= key %> <%= value %>
+ <%- dirs.each do |dir, dir_value| -%>
+   <%= dir %> <%= dir_value %>
+ <%- end -%>
  <%- end -%>
  </Directory>
  <%- end -%>

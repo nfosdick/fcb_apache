@@ -22,7 +22,7 @@ fcb_apache_v2::windows::vhosts:
          'c:/temp':
             Require: 'all granted'
      '443':
-       DocumentRoot: 'c:/nick'
+       DocumentRoot: 'c:/pam'
        Directory:
          'c:/nick':
            Require: 'all granted'
