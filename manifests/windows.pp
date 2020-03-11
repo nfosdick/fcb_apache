@@ -24,6 +24,6 @@ class fcb_apache_v2::windows(
 
   # Class Includes
   include fcb_apache_v2::windows::install
-#  include fcb_apache_v2::windows::config
-#  include fcb_apache_v2::windows::service
+  include fcb_apache_v2::windows::config
+  include fcb_apache_v2::windows::service
 }
