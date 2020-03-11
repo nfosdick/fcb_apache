@@ -13,6 +13,10 @@ fcb_apache_v2::vhosts_defaults:
   ssl:
     port: '443'
     ssl: true
+    SSLEngine: on
+    SSLCertificateFile: 'C:/apache.cer'
+    SSLCertificateKeyFile: 'C:/apache.key'
+    SSLCACertificateFile: 'C:/apache_root'
 
 # Windows Defaults
 fcb_apache_v2::windows: '2.4.41'
