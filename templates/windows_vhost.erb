@@ -6,7 +6,7 @@
 <%- if key != 'Directory' -%>
  <%= key %> <%= value %>
 <%- else -%>
-<%- config_merged.each do |dir, dir_config| -%>
+<%- config_merged['Directory'].each do |dir, dir_config| -%>
  <Directory "<%= dir %>">
  </Directory>
 <%- end -%>
