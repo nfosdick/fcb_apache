@@ -6,13 +6,13 @@
  <% if key != 'Directory' -%>
  <%= key %> <%= value %>
  <%- else -%>
- <%- dirs = @vhost_directory_defaults.merge(value) -%>
- <%- dirs.each do |dir, dir_value| -%>
+ <%- dirs_merged = @vhost_directory_defaults.merge(value) -%>
+ <%- dirs_merged.each do |dir, dir_value| -%>
  <Directory "<%= dir %>">
    <%= dir %> <%= dir_value %>
  <%- end -%>
- <%- end -%>
  </Directory>
+ <%- end -%>
  <%- end -%>
 </VirtualHost>
 <% end %>
