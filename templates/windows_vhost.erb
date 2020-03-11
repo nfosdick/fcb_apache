@@ -5,9 +5,12 @@
 <% config_merged.each do |key, value| -%>
 <%- if key != 'Directory' -%>
  <%= key %> <%= value %>
-<%- else -%>
+<%- else %>
 <%- config_merged['Directory'].each do |dir, dir_config| -%>
  <Directory "<%= dir %>">
+ <%- dir_config.each do |x, y| -%>
+   <%= x %> <%= y %>
+ <%- end -%>
  </Directory>
 <%- end -%>
 <%- end -%>
