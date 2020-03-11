@@ -6,7 +6,7 @@
  <% if key != 'Directory' -%>
  <%= key %> <%= value %>
  <% else -%>
- <%- dirs = @vhost_directory_defaults.merge(dir_config) -%>
+ <%- dirs = @vhost_directory_defaults.merge(value) -%>
  <%- dirs.each do |dir, dir_value| -%>
    <%= dir %> <%= dir_value %>
  <%- end -%>
