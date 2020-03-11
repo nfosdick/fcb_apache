@@ -8,7 +8,8 @@
 <%- else %>
 <%- config_merged['Directory'].each do |dir, dir_config| -%>
  <Directory "<%= dir %>">
- <%- dir_config.each do |x, y| -%>
+ <%- dir_config_merged = @vhost_directory_defaults.merge(dir_config) -%>
+ <%- dir_config_merged.each do |x, y| -%>
    <%= x %> <%= y %>
  <%- end -%>
  </Directory>
