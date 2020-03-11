@@ -5,9 +5,10 @@
  <% config_merged.each do |key, value| %>
  <% if key != 'Directory' -%>
  <%= key %> <%= value %>
- <% else -%>
+ <%- else -%>
  <%- dirs = @vhost_directory_defaults.merge(value) -%>
  <%- dirs.each do |dir, dir_value| -%>
+ <Directory "<%= dir %>">
    <%= dir %> <%= dir_value %>
  <%- end -%>
  <%- end -%>
