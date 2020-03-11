@@ -2,19 +2,15 @@
 <% port_config.each do |port, config| %>
 <%- config_merged = @vhost_defaults[port].merge(config) -%>
 <VirtualHost *:<%= port %>>
- <% config_merged.each do |key, value| -%>
- <%- if key != 'Directory' -%>
+<% config_merged.each do |key, value| -%>
+<%- if key != 'Directory' -%>
  <%= key %> <%= value %>
- <%- else -%>
- <%- config_merged.each do |dir, dir_config| -%>
+<%- else -%>
+<%- config_merged.each do |dir, dir_config| -%>
  <Directory "<%= dir %>">
-   <%- dir_config.each do |x, y| -%>
-   <%= x %> <%= y %>
-   <%- end -%>
- <%- end -%>
  </Directory>
- <%- end -%>
- <%- end -%>
+<%- end -%>
+<%- end -%>
 </VirtualHost>
 <% end %>
 <% end %>
