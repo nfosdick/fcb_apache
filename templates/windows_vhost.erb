@@ -3,7 +3,7 @@
 <%- config_merged = @vhost_defaults[port].merge(config) -%>
 <VirtualHost *:<%= port %>>
  <% config_merged.each do |key, value| %>
- <% if @key != 'Directory' -%>
+ <% if value != 'Directory' -%>
  <%= key %> <%= value %>
  <% else -%>
  <%- dirs = @vhost_directory_defaults.merge(dir_config) -%>
