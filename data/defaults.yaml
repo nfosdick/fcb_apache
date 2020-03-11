@@ -33,7 +33,7 @@ fcb_apache_v2::windows::vhost_defaults:
     DocumentRoot: 'c:/larktemp'
   '443':
     DocumentRoot: 'c:/larktemp'
-    SSLEngine: 'On'
+#    SSLEngine: 'On'
 fcb_apache_v2::windows::vhost_directory_defaults:
   AllowOverride: 'None'
   Options: 'Indexes'
