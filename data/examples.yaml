@@ -14,6 +14,9 @@ fcb_apache_v2::modules:
 fcb_apache_v2::windows::vhosts:
   'nick.fcb.com':
      '80':
+       Alias:
+         - '"/images/" "C:/larktemp/"'
+         - '"/blah/" "C:/larktemp/"'
 #       DocumentRoot: 'c:/nick'
        Directory:
          'c:/nick':
