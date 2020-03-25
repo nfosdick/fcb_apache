@@ -5,9 +5,9 @@
  ServerName <%= server %>
 <% config_merged.each do |key, value| -%>
 <%- if key != 'Directory' -%>
- <%- if key != 'Alias' %>
+ <%- if key != 'Alias' -%>
  <%= key %> <%= value %>
- <%- else %>
+ <%- else -%>
  <% value.each do |val| -%>
  Alias <%= val %>
  <%- end -%>
