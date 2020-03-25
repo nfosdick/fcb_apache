@@ -22,7 +22,7 @@ fcb_apache_v2::windows::vhosts:
          'c:/nick':
            Require: 'all granted'
            Options: 'Indexes FollowSymLinks'
-         'c:/temp':
+         'c:/larktemp':
             Require: 'all granted'
      '443':
        DocumentRoot: 'c:/pam'
