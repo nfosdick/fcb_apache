@@ -8,7 +8,7 @@
  <%- if key != 'Alias' -%>
  <%= key %> <%= value %>
  <%- else -%>
- <% value.each do |val| -%>
+ <%- value.each do |val| -%>
  Alias <%= val %>
  <%- end -%>
  <%- end -%>
