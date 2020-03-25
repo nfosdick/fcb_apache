@@ -4,10 +4,10 @@
 <VirtualHost *:<%= port %>>
  ServerName <%= server %>
 <% config_merged.each do |key, value| -%>
-value.kind_of?(Array)
-<%- if value.kind_of?(Array) -%>
+<%- if key != 'Directory' -%>
+ <%- if key != 'Alias' %>
  <%= key %> <%= value %>
-<%- elsif if value.kind_of?(Array) %>
+ <%- else %>
  <% @value.each do |val| -%>
   Some stuff with <%= val %>
  <% end -%>
