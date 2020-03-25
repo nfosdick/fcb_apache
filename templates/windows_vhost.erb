@@ -8,9 +8,8 @@
  <%- if key != 'Alias' %>
  Nick <%= key %> <%= value %>
  <%- else %>
- <% @value.each do |val| -%>
   Some stuff with <%= val %>
- <% end -%>
+ <%- end -%>
 <%- else %>
 <%- config_merged['Directory'].each do |dir, dir_config| -%>
  <Directory "<%= dir %>">
