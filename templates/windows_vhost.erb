@@ -7,7 +7,7 @@
 <%- if key != 'Directory' -%>
  <%= key %> <%= value %>
 <%- elsif key == 'Alias' %>
-<%- config_merged['Alias'].each do |alias| -%>
+<%- values.each do |alias| -%>
  Alias <%= alias %>
 <% end %>
 <%- else %>
