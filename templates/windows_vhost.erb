@@ -6,9 +6,11 @@
 <% config_merged.each do |key, value| -%>
 <%- if key != 'Directory' -%>
  <%- if key != 'Alias' %>
- Nick <%= key %> <%= value %>
+ <%= key %> <%= value %>
  <%- else %>
-  alias <%= value %>
+ <% value.each do |val| -%>
+ Alias <%= val %>
+ <%- end -%>
  <%- end -%>
 <%- else %>
 <%- config_merged['Directory'].each do |dir, dir_config| -%>
