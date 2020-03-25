@@ -2,7 +2,7 @@
 <% port_config.each do |port, config| %>
 <%- config_merged = @vhost_defaults[port].merge(config) -%>
 <VirtualHost *:<%= port %>>
-ServerName <%= server %>
+  ServerName <%= server %>
 <% config_merged.each do |key, value| -%>
 <%- if key != 'Directory' -%>
  <%= key %> <%= value %>
