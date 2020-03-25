@@ -6,7 +6,7 @@
 <% config_merged.each do |key, value| -%>
 <%- if key != 'Directory' -%>
  <%- if key != 'Alias' %>
- <%= key %> <%= value %>
+ Nick <%= key %> <%= value %>
  <%- else %>
  <% @value.each do |val| -%>
   Some stuff with <%= val %>
