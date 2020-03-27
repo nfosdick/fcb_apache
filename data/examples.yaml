@@ -13,6 +13,7 @@ fcb_apache_v2::modules:
 # Windows Examples
 fcb_apache_v2::windows::modules:
   - status_module modules/mod_status.so
+  - ssl_module modules/mod_ssl.so
 fcb_apache_v2::windows::vhosts:
   'nick.fcb.com':
      '80':
