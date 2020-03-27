@@ -2,6 +2,13 @@ Define SRVROOT "<%= @srvroot %>"
 ServerRoot "${SRVROOT}"
 Define ENABLE_TLS13 "Yes"
 Listen 80
+<%- @moudles.each do |module| -%>
+LoadModule <%= module %>
+<%- end -%>
+
+
+
+
 LoadModule actions_module modules/mod_actions.so
 LoadModule alias_module modules/mod_alias.so
 LoadModule allowmethods_module modules/mod_allowmethods.so

@@ -6,6 +6,7 @@ class fcb_apache_v2::windows::config {
   $apache_dir               = $fcb_apache_v2::windows::apache_dir
   $srvroot                  = $fcb_apache_v2::windows::srvroot
   $service_name             = $fcb_apache_v2::windows::service_name
+  $modules                  = $fcb_apache_v2::windows::modules
   $config_file              = $fcb_apache_v2::windows::config_file
   $vhosts                   = $fcb_apache_v2::windows::vhosts
   $vhost_defaults           = $fcb_apache_v2::windows::vhost_defaults
