@@ -13,6 +13,7 @@ class fcb_apache_v2::windows(
   $registry_name,
   $vhost_defaults,
   $vhost_directory_defaults,
+  $srvroot,
 ){
 
   # Computed Variables

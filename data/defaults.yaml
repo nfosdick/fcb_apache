@@ -28,6 +28,7 @@ fcb_apache_v2::windows::apache_dir: 'Apache24'
 fcb_apache_v2::windows::service_name: 'apache'
 fcb_apache_v2::windows::state: 'running'
 fcb_apache_v2::windows::registry_name: 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026'
+fcb_apache_v2::windows::srvroot: '/Apache24'
 fcb_apache_v2::windows::vhost_defaults:
   '80':
     DocumentRoot: 'c:/larktemp'
