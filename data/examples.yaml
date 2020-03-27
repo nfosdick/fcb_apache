@@ -11,6 +11,8 @@ fcb_apache_v2::modules:
   - status
 
 # Windows Examples
+fcb_apache_v2::windows::modules:
+  - status_module modules/mod_status.so
 fcb_apache_v2::windows::vhosts:
   'nick.fcb.com':
      '80':

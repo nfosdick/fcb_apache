@@ -2,7 +2,7 @@ Define SRVROOT "<%= @srvroot %>"
 ServerRoot "${SRVROOT}"
 Define ENABLE_TLS13 "Yes"
 Listen 80
-<%- @modules.each do |item| -%>
+<%- @merged_modules.each do |item| -%>
 LoadModule <%= item %>
 <%- end -%>
 <IfModule unixd_module>

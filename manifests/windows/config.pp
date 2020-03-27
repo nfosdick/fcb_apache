@@ -6,11 +6,14 @@ class fcb_apache_v2::windows::config {
   $apache_dir               = $fcb_apache_v2::windows::apache_dir
   $srvroot                  = $fcb_apache_v2::windows::srvroot
   $service_name             = $fcb_apache_v2::windows::service_name
+  $default_modules          = $fcb_apache_v2::windows::default_modules
   $modules                  = $fcb_apache_v2::windows::modules
   $config_file              = $fcb_apache_v2::windows::config_file
   $vhosts                   = $fcb_apache_v2::windows::vhosts
   $vhost_defaults           = $fcb_apache_v2::windows::vhost_defaults
   $vhost_directory_defaults = $fcb_apache_v2::windows::vhost_directory_defaults
+
+  $merged_modules = $default_modules + $modules
 
   Concat::Fragment {
     notify => Exec[ 'Restart Apache' ],

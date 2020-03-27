@@ -1,7 +1,8 @@
 class fcb_apache_v2::windows(
-  $architecture = $facts['architecture'],
-  $httpd_zip    = "httpd-${version}-o111c-${architecture}-vc15-r2.zip",
-  $vhosts       = {},
+  $architecture    = $facts['architecture'],
+  $httpd_zip       = "httpd-${version}-o111c-${architecture}-vc15-r2.zip",
+  $default_modules = {},
+  $vhosts          = {},
   $version,
   $base_httpd_url,
   $vc_redist_exe,

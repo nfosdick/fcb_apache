@@ -38,7 +38,7 @@ fcb_apache_v2::windows::vhost_defaults:
 fcb_apache_v2::windows::vhost_directory_defaults:
   AllowOverride: 'None'
   Options: 'Indexes'
-fcb_apache_v2::windows::modules:
+fcb_apache_v2::windows::default_modules:
   - actions_module modules/mod_actions.so
   - alias_module modules/mod_alias.so
   - allowmethods_module modules/mod_allowmethods.so
@@ -63,4 +63,4 @@ fcb_apache_v2::windows::modules:
   - setenvif_module modules/mod_setenvif.so
   - socache_shmcb_module modules/mod_socache_shmcb.so
   - ssl_module modules/mod_ssl.so
-  - status_module modules/mod_status.so
+  #- status_module modules/mod_status.so
