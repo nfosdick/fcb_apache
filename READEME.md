@@ -25,11 +25,12 @@ The Apache forge module for the Linux installation.  There
 The Windows installation makes use of custom install manifests as there was not an existing forge module for install Apache on Windows.
 
 ## Setup
+```
 puppet module install puppetlabs-apache --version 5.4.0
 puppet module install puppetlabs-dsc --version 1.9.3
 puppet module install puppetlabs-concat --version 6.2.0
 puppet module install puppetlabs-powershell --version 2.3.0
-
+```
 ## Usage
 ```
 node default {
