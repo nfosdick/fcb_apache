@@ -7,12 +7,6 @@
 1. [Setup](#setup)
 1. [Usage](#usage)
 1. [Hiera](#hiera)
-1. [Reference](#reference)
-    1. [Data Types](#data-types)
-    1. [Facts](#facts)
-1. [Limitations](#limitations)
-1. [Development](#development)
-1. [Contributors](#contributors)
 
 ## Overview
 
@@ -46,7 +40,7 @@ node default {
 ```
 fcb_apache_v2::config:
   purge_configs: false
-#  default_vhost: false
+  default_vhost: false
 fcb_apache_v2::purge_configs: false
 fcb_apache_v2::packages:
   - mod_security
@@ -65,6 +59,8 @@ fcb_apache_v2::vhosts_defaults:
 ```
 ### Linux Vhost Example
 ```
+fcb_apache_v2::modules:
+  - status
 fcb_apache_v2::vhosts:
   lark.fcb.com_nonssl:
     servername: 'lark.fcb.com'
@@ -73,6 +69,23 @@ fcb_apache_v2::vhosts:
     servername: 'lark.fcb.com'
     docroot: '/var/www/lark'
     ssl: true
-fcb_apache_v2::modules:
-  - status
+```
+### Windows Default
+```
+fcb_apache_v2::windows::version: '2.4.41'
+fcb_apache_v2::windows::base_httpd_url: 'https://larkfileshare.blob.core.windows.net/fcb'
+fcb_apache_v2::windows::vc_redist_exe: 'vc_redist.x64.exe'
+fcb_apache_v2::windows::destination_path: 'c:/larktemp'
+fcb_apache_v2::windows::install_path: 'c:/apache'
+fcb_apache_v2::windows::apache_dir: 'Apache24'
+fcb_apache_v2::windows::service_name: 'apache'
+fcb_apache_v2::windows::state: 'running'
+fcb_apache_v2::windows::registry_name: 'Microsoft Visual C++ 2015 Redistributable (x64) - 14.0.23026'
+fcb_apache_v2::windows::srvroot: '/Apache24'
+fcb_apache_v2::windows::vhost_defaults:
+  '80':
+    DocumentRoot: 'c:/larktemp'
+  '443':
+    DocumentRoot: 'c:/larktemp'
+    SSLEngine: 'On'
 ```
