@@ -10,17 +10,19 @@
 
 ## Overview
 
-This module installs apache on Windows or Linux platforms.  
+This module installs apache on Windows or Linux platforms.  The init.pp makes use of OS.Name fact to determine the install path.
 
 ## Module Description
 
-This module is used to install Apache on both Windows and Linux platforms.  
+This module is used to install Apache on both Windows and Linux platforms.  It uses dynamic hash ( * => $config ) to minimize updates needed for the wrapper module. 
+
+There are 2 core yaml files used to configure Apache instances.  The merge stragey desired for this module is configured in the merge.yaml, and most effective way to set configuration in Hiera is a deep merge stategy to help minimize duplicate configuration.  For configuration items that apply to all systems or a majority of systems then defaults.yaml should be used for setting items in hiera.  If there is a need to override something in defaults then setting values in a more specific Hiera yaml will override anything in defaults.yaml based on a deep merge strategy.  The primary goal here is to minimize the number of places that things have to be configured in Hiera.  
 
 ### Linux 
-The Apache forge module for the Linux installation.
+The Apache forge module for the Linux installation.  There
 
 ### Windows
-Windows 
+The Windows installation makes use of custom install manifests as there was not an existing forge module for install Apache on Windows.
 
 ## Setup
 puppet module install puppetlabs-apache --version 5.4.0
@@ -36,7 +38,15 @@ node default {
 ```
 
 ## Hiera
-### Linux Default
+### Merge Strategy - merge.yaml
+```
+lookup_options:
+  "fcb_apache_v2::.*":
+    merge:                          # Merge the values found across hierarchies, instead of getting the first one
+      strategy: deep                # Do a deep merge, useful when dealing with Hashes (to override single subkeys)
+      merge_hash_arrays: true
+```
+### Linux Default - defaults.yaml
 ```
 fcb_apache_v2::config:
   purge_configs: false
@@ -58,6 +68,7 @@ fcb_apache_v2::vhosts_defaults:
     SSLCACertificateFile: 'C:/apache_root'
 ```
 ### Linux Vhost Example
+The vhost is prepended to the 2 reserved words nonssl and ssl.  This ensures the proper merging of defaults in defaults.yaml.
 ```
 fcb_apache_v2::modules:
   - status
@@ -70,7 +81,7 @@ fcb_apache_v2::vhosts:
     docroot: '/var/www/lark'
     ssl: true
 ```
-### Windows Default
+### Windows Default - defaults.yaml
 ```
 fcb_apache_v2::windows::version: '2.4.41'
 fcb_apache_v2::windows::base_httpd_url: 'https://larkfileshare.blob.core.windows.net/fcb'
