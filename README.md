@@ -19,7 +19,10 @@ This module is used to install Apache on both Windows and Linux platforms.  It u
 There are 2 core yaml files used to configure Apache instances.  The merge stragey desired for this module is configured in the merge.yaml, and most effective way to set configuration in Hiera is a deep merge stategy to help minimize duplicate configuration.  For configuration items that apply to all systems or a majority of systems then defaults.yaml should be used for setting items in hiera.  If there is a need to override something in defaults then setting values in a more specific Hiera yaml will override anything in defaults.yaml based on a deep merge strategy.  The primary goal here is to minimize the number of places that things have to be configured in Hiera.  
 
 ### Linux 
-The Apache forge module for the Linux installation.  There
+The Apache forge module for the Linux installation.
+```
+https://forge.puppet.com/puppetlabs/apache
+```
 
 ### Windows
 The Windows installation makes use of custom install manifests as there was not an existing forge module for install Apache on Windows.
